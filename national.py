@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import warnings
 warnings.filterwarnings('ignore')
-df= pd.read_csv("C:\\Users\\18329\\Downloads\\Pre_term.csv")
+df= pd.read_csv("C:\\Users\\18329\\Desktop\\streamlit_deploy\\Preterm.csv")
 x= df.iloc[:,:-1]
 y = df.iloc[:,-1:]
 from sklearn.model_selection import train_test_split
@@ -25,11 +25,11 @@ rpj.fit(x_train,y_train)
 from imblearn.under_sampling import RandomUnderSampler
 rus= RandomUnderSampler(random_state=1)
 x_train_resampled,y_train_resampled = rus.fit_resample(x_train,y_train)
-rpj= LogisticRegression(max_iter=120).fit(x_train_resampled,y_train_resampled)
+rpj= LogisticRegression(max_iter=1200000).fit(x_train_resampled,y_train_resampled)
 y_pred= rpj.predict_proba(x_test)[:,1]
 y_pred
 import pickle 
-filename = 'test.sav'
+filename = 'Pre_term.sav'
 pickle.dump(rpj, open(filename, 'wb'))
 
-loaded_model= pickle.load(open('test.sav','rb'))
+loaded_model= pickle.load(open('pre_term.sav','rb'))
