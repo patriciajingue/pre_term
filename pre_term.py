@@ -90,7 +90,7 @@ def main():
         PGMSUGUR,PGMSUGBL,PGMDIAB,PGMABNCORD,PGMABNPLAC,PGMAVAGBLED,PGMTRANQFREQ,
         PGMDRECBED,PGMWTCHANUP,BORNCONGEN,MOMAGEATBORN]
          
-        [bool_to_int(x)for x in array]
+        
         diagnosis= premie_pred([bool_to_int(x)for x in array])
 
         
